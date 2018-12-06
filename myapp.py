@@ -1,8 +1,11 @@
 from flask import Flask,url_for
 from flask_sqlalchemy import SQLAlchemy 
-
+from boto.s3.connection import S3Connection
+import os
 
 app = Flask(__name__)
+
+s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 
 # cofigs baby!
 app.config.from_pyfile('config.py') 
