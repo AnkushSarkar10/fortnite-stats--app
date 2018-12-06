@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+	<br><br><br>
+	<strong class="title is-1">{{ name }}								
+	</strong>
+	<!-- <strong class="title">{{ platform }}</strong> -->
+
+	{% if platform == 'psn' %}
+    	<i class="fab fa-2x	fa-playstation"></i>
+    {% elif platform == 'pc' %}
+    	<i class="fas fa-2x fa-desktop"></i>
+    {% elif platform == 'xb1' %}
+    	<i class="fab fa-2x fa-xbox"></i>
+    {% else %}
+    {% endif %}<br><br><br><br>
+	<div class="columns">
+	    <div class="column is-3">
+	    	<div class="box em-bol">
+		    	<article class="message is-dark is-medium">
+		    		<div class="message-header">
+		    		  <strong class="title is-4">Solos</strong>
+		    		</div>
+		    		<div class="message-body">
+		    			{% for stat in stats_list %}
+		    			Wins : <br><span>{{ stat['Solo Wins'] }}</span><hr>
+		    			Matches Played : <br>
+		    			<span>{{ stat['Solo Matches'] }}</span><hr>
+		    			Kills : <br><span>{{ stat['Solo Kills'] }}</span><hr>
+		    			K/D : <br><span>{{ stat['Solo K/D'] }}</span><br>
+		    			{% endfor %}
+		    		</div>
+		    		
+		    	</article>
+	    	</div>
+	    </div>
+	    <div class="column is-1"></div>
+	    <div class="column is-3">
+	    	<div class="box em-bol">
+		    	<article class="message is-dark is-medium">
+		    		<div class="message-header">
+		    		  <strong class="title is-4">Duos</strong>
+		    		</div>
+		    		<div class="message-body">
+		    			{% for stat in stats_list %}
+		    			Wins : <br><span>{{ stat['Duo Wins'] }}</span><hr>
+		    			Matches Played : <br>
+		    			<span>{{ stat['Duo Matches'] }}</span><hr>
+		    			Kills : <br><span>{{ stat['Duo Kills'] }}</span><hr>
+		    			K/D : <br><span>{{ stat['Duo K/D'] }}</span><br>
+		    			{% endfor %}
+		    		</div>
+		    		
+		    	</article>
+	    	</div>
+	    </div>
+	    <div class="column is-1"></div>
+	    <div class="column is-3">
+	    	<div class="box em-bol">
+		    	<article class="message is-dark is-medium">
+		    		<div class="message-header">
+		    		  <strong class="title is-4">Squads</strong>
+		    		</div>
+		    		<div class="message-body">
+		    			{% for stat in stats_list %}
+		    			Wins : <br><span>{{ stat['Squad Wins'] }}</span><hr>
+		    			Matches Played : <br>
+		    			<span>{{ stat['Squad Matches'] }}</span><hr>
+		    			Kills : <br><span>{{ stat['Squad Kills'] }}</span><hr>
+		    			K/D : <br><span>{{ stat['Squad K/D'] }}</span><br>
+		    			{% endfor %}
+		    		</div>
+		    		
+		    	</article>
+	    	</div>
+	    </div>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock content %}

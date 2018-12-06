@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- title -->
+	{% if title %}
+	<title>Fortnite Stats Comparison - {{ title }} </title>
+	{% else %}
+	<title>Fortnite Stats Comparison </title>
+	{% endif %}
+	 <!-- Required meta tags --> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+
+	<style type="text/css">
+	body{
+	font-family:"Courier New";
+ 	background: linear-gradient(to right, #757f9a, #d7dde8);
+ 	}
+	.box{
+	padding: 0px;
+	box-shadow: 6px 6px 6px black;
+	}
+	.em-bol{
+		font-weight: 1000;
+		text-emphasis-style;
+		font-style: italic;
+	}
+	hr{
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+		background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+		background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+		background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+	}
+	span{
+		font-weight: 500;
+		font-style: normal;
+		padding: 15px ;
+		font-size: 22px;
+	}
+	</style>
+
+</head>
+<body>
+	
+	<!-- nav bar -->
+	<nav class="navbar is-dark " role="navigation" aria-label="main navigation">
+	  <div class="navbar-brand">
+	   
+
+	    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+	      <span aria-hidden="true"></span>
+	      <span aria-hidden="true"></span>
+	      <span aria-hidden="true"></span>
+	    </a>
+	  </div>
+
+	  <div id="navbarBasicExample" class="navbar-menu">
+	    <div class="navbar-start">
+	      <a class="navbar-item title is-5" href="{{ url_for('home') }}">
+			 Home
+	      </a>
+	    </div>
+
+	    <div class="navbar-end">
+	      <a class="navbar-item" href="{{ url_for('add_player') }}">
+	        Add Player
+	      </a>
+
+	      <div class="navbar-item has-dropdown is-hoverable">
+	        <a class="navbar-link">
+	          More
+	        </a>
+
+	        <div class="navbar-dropdown">
+	          <a class="navbar-item">
+	            About
+	          </a>
+	          <a class="navbar-item">
+	            Jobs
+	          </a>
+	          <a class="navbar-item">
+	            Contact
+	          </a>
+	          <hr class="navbar-divider">
+	          <a class="navbar-item">
+	            Report an issue
+	          </a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</nav>
+
+	
+
+	{% block content %}
+	{% endblock %}
+
+	    
+</html>

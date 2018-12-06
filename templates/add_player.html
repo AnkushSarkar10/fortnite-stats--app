@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style type="text/css">
+.rounded-border{
+	border: 2px solid lightgrey ;
+	border-radius: 9px;
+	padding:3px;
+}
+
+</style>
+
+
+<form method="POST" action="">
+	<div class="container">
+		{{ form.hidden_tag() }}
+		<center><h1 class="title is-2 rounded-border">ADD PLAYER</h1></center>
+		<br>
+
+		<div class="field">
+			<div class="control">
+		    <center>{{ form.username.label(class="label title is-4") }}</center>
+		    <br>
+		    {% if form.username.errors %}
+				
+			 		{{ form.username(class="input is-danger") }}
+			  	<div class="help is-danger">
+					{% for error in form.username.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.username(class="input")}}
+		  	{% endif %}
+		  	<hr>
+		  </div>
+		</div>
+
+		<div class="control">
+		
+		 	<center>{{ form.platform.label(class="label title is-4") }}
+		 	</center>
+		 	<br>
+			  <center>
+			  	<div class="select">
+			 	{{ form.platform() }}
+			  </div>
+			  </center>
+		</div>
+
+		<br><hr>
+
+		<div class="control">
+		  <center>{{ form.submit(class="button is-primary") }}</center>
+		</div>
+	</div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock content %}

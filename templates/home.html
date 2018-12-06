@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+	<!-- header -->
+	<section class="hero is-dark is-bold">
+	  <div class="hero-body">
+	    <div class="container">
+	      <h1 class="title">
+	       Fortnite Stats Comparison
+	      </h1>
+	      <h2 class="subtitle">
+	        Compare your stats with freinds
+	      </h2>
+	    </div>
+	  </div>
+	</section>
+	<br>
+
+	<div class="column is-half is-offset-one-quarter">
+	<h1 class="title is-2" >Lifetime Stats</h1>
+	</div>
+
+	{% for stat in stats_list %}
+		<br>
+
+		<div class="column is-half is-offset-one-quarter">
+		<div class="box">
+		<article class="message is-dark is-medium">
+		  
+		  <a href="{{ url_for('player_stats'
+		  ,platform = stat['Platform'] , name = stat['Player']) }}" 
+		  style="text-decoration:none">
+		  	<div class="message-header">
+		    <strong>{{ stat['Player'] }}</strong>
+		    {% if stat['Platform'] == 'psn'%}
+		    	<i class="fab fa-playstation"></i>
+		    {% elif stat['Platform'] == 'pc'%}
+		    	<i class="fas fa-desktop"></i>
+		    {% elif stat['Platform'] == 'xb1'%}
+		    	<i class="fab fa-xbox"></i>
+		    {% else %}
+
+		    {% endif %}
+		  </div>
+		  <div class="message-body">
+		    <strong><h1>Wins : {{ stat['Wins'] }}</strong></h1>
+			<strong><h1>Kills : {{ stat['Kills'] }}</strong></h1>
+			<strong><h1>Matches Played : {{ stat['Matches Played'] }}
+			</strong></h1>
+		  </div>
+		</article>
+		</div>
+		</div>
+		</a>
+		
+		<br>
+	{% endfor %}
+
+{% endblock content %}
